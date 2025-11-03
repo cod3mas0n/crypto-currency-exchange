@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: crypto-currency-exchange
+  namespace: crypto-currency-exchange
+  labels:
+    app: crypto-currency-exchange
+spec:
+  replicas: 1
+  revisionHistoryLimit: 0
+  selector:
+    matchLabels:
+      app: crypto-currency-exchange
+  template:
+    metadata:
+      labels:
+        app: crypto-currency-exchange
+    spec:
+      # imagePullSecrets:
+      #   - name: regcred
+      containers:
+      - name: crypto-currency-exchange
+        image: docker.io/alimehr75/crypto-currency-exchange:latest
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 500m
+            memory: 512Mi
+          requests:
+            cpu: '1'
+            memory: 1Gi
+          envFrom:
+            - configMapRef:
+                name: cce-configmap
+                optional: false
+            - secretRef:
+                name: cce-secret
+                optional: false
