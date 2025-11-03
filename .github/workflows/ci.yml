@@ -47,7 +47,7 @@ jobs:
       
       - name: Update deployment image tag
         run: |
-          sed -i "s|image: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:.*|image: ${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:${{ steps.sha.outputs.short }}|g" kubernetes/deployment.yaml
+          sed -i "s|image: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:.*|image: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/${{ github.event.repository.name }}:${{ steps.sha.outputs.short }}|g" kubernetes/deployment.yaml
       
       - name: Commit and push changes
         run: |
