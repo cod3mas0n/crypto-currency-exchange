@@ -20,7 +20,7 @@ spec:
       #   - name: regcred
       containers:
       - name: crypto-currency-exchange
-        image: docker.io/alimehr75/crypto-currency-exchange:1b52684
+        image: docker.io/alimehr75/crypto-currency-exchange:acd516f
         imagePullPolicy: Always
         resources:
           requests:
