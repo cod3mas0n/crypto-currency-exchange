@@ -56,8 +56,14 @@
 * HTTP requests
 * ...
 
-
 ## Database Schema
+
+[**pre-seeding**](https://docs.docker.com/guides/pre-seeding/)
+
+> Database will be created via `initdb.d` directory, replace the `STRONG_PASSWORD` in the `postgres-initdb.d/01-crypto-db.sql` and in `app.env` to create needed role and database at the first start up via `docker compose -f docker-compose.yml up -d`.
+>
+> Also set another password `POSTGRES_USER_STRONG_PASSWD` for postgres user in `db.env`.
+
 ![databse-schema](images/database_schema.svg)
 
 # API Reference
